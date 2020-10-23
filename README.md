@@ -1,2 +1,2 @@
 # FartBattle
-Sneak to fart | Idea from JerryVsHary
+Sneak to fart | Idea from JerryVsHarry
