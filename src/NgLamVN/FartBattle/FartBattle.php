@@ -15,6 +15,7 @@ use pocketmine\level\particle\EnchantParticle;
 use pocketmine\level\particle\ExplodeParticle;
 use pocketmine\level\particle\FlameParticle;
 use pocketmine\level\particle\HugeExplodeSeedParticle;
+use pocketmine\level\Position;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
@@ -51,6 +52,9 @@ class FartBattle extends PluginBase implements Listener
                 $player->getLevel()->addParticle(new EnchantParticle(new Vector3($x,$y,$z), new Color(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255))));
                 if ($event->getPlayer()->getLevel()->getBlockAt($x,$y,$z)->getId() !== Block::AIR)
                 {
+                    $explosion = new Explosion(new Position($x, $y, $z, $player->getLevel()), 10);
+                    $explosion->explodeA();
+                    $explosion->explodeB();
                     break;
                 }
                 $bb = new AxisAlignedBB($x-0.3, $y-0.3, $z-0.3, $x+0.3, $y+0.3, $z+0.3);
